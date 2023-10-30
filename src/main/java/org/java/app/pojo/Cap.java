@@ -60,6 +60,11 @@ public class Cap {
 	@JsonManagedReference 
 	private List<Size> sizes; 
 	
+	public Cap() {
+		
+	}
+
+	
 	public int getId() {
 		return id;
 	}

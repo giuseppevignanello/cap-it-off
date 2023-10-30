@@ -11,6 +11,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToMany;
 import jakarta.validation.constraints.NotBlank;
 
@@ -20,19 +21,37 @@ public class Size {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@Column(unique = true, length = 5, nullable = false)
+	@Column(unique = true, length = 15, nullable = false)
 	@NotBlank(message = "You must insert a name for this size")
 	@Length (
 			min = 1,
-			max = 5, 
-			message = "The name of the size must be between 1 and 5 characters"
+			max = 15, 
+			message = "The name of the size must be between 1 and 15 characters"
 			)
 	private String name;
+	
+	@Lob
+	@Column(columnDefinition="text")
+	@NotBlank(message = "You must insert a description for this size")
+	@Length(
+			min = 3, 
+			max = 300,
+			message = "The description of the size must be between 3 and 300 characters"
+			)
+	private String description; 
 	
 	@ManyToMany(mappedBy = "sizes")
 	@JsonBackReference
 	private List<Cap> caps; 
 	
+	
+	// Constructor
+	public Size() {
+		
+	}
+	
+	
+	//Getters and setters
 	public int getId() {
 		return id;
 	}
@@ -49,6 +68,16 @@ public class Size {
 		return name;
 	}
 
+
+
+	public String getDescription() {
+		return description;
+	}
+
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
 
 	public void setName(String name) {

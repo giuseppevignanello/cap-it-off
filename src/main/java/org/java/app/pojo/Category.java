@@ -46,6 +46,14 @@ public class Category {
 	@JsonBackReference
 	private List<Cap> caps; 
 	
+	
+	//Constructor
+	public Category() {
+		
+	}
+	
+	//Getters and Setters
+	
 	public int getId() {
 		return id;
 	}
