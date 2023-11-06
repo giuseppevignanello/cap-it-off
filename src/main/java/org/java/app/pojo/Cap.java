@@ -137,5 +137,14 @@ public class Cap {
 		this.sizes = sizes;
 	}
 
+	public void fillFromCapDTO(CapDTO capDTO) {
+		setName(capDTO.getName()); 
+		setDescription(capDTO.getDescription());
+		setPrice(capDTO.getPrice());
+		setPhotoUrl(capDTO.getPhotoUrl());
+		setAvailable(capDTO.isAvailable());
+		
+	}
+
 	
 }

@@ -26,4 +26,10 @@ public Optional<Cap> findById(int id) {
 	
 	return capRepo.findById(id);
 }
+
+public void deleteCap(Cap cap) {
+	
+capRepo.delete(cap);
+	
+}
 }
