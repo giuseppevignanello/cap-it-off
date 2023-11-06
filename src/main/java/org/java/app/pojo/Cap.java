@@ -63,6 +63,14 @@ public class Cap {
 	public Cap() {
 		
 	}
+	
+	public Cap(CapDTO capDTO) {
+		setName(capDTO.getName()); 
+		setDescription(capDTO.getDescription()); 
+		setPrice(capDTO.getPrice());
+		setPhotoUrl(capDTO.getPhotoUrl()); 
+		setAvailable(capDTO.isAvailable());
+	}
 
 	
 	public int getId() {

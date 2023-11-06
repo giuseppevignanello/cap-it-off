@@ -1,6 +1,7 @@
 package org.java.app.serv;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.java.app.pojo.Cap;
 import org.java.app.repo.CapRepo;
@@ -19,5 +20,10 @@ public Cap save(Cap cap) {
 
 public List<Cap> findAll() {
 	return capRepo.findAll();
+}
+
+public Optional<Cap> findById(int id) {
+	
+	return capRepo.findById(id);
 }
 }
